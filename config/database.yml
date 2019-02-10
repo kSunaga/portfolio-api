@@ -17,6 +17,6 @@ test:
 
 production:
   <<: *default
-  database: portfolio-api_production
-  username: portfolio-api
-  password: <%= ENV['PORTFOLIO-API_DATABASE_PASSWORD'] %>
+  database: heroku_300dfc50193758d
+  username: bc956a13f28149
+  password: <%= ENV['DATABASE_PASSWORD'] %>
