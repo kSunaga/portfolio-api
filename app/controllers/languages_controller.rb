@@ -14,7 +14,7 @@ class LanguagesController < ApplicationController
   end
 
   def index
-    languages = Language.all
+    languages = existSkill_id ? Language.search_skill_id(params[:skill_id]) : Language.all
     render json: languages
   end
 
@@ -26,5 +26,9 @@ class LanguagesController < ApplicationController
 
   def language_params
     params.require(:language).permit(:name, :description, :first_experience)
+  end
+
+  def existSkill_id
+    params[:skill_id].present?
   end
 end
