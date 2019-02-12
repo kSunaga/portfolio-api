@@ -1,4 +1,6 @@
 class Api::V1::LanguagesController < ApplicationController
+  before_action :set_params, only: %i(show)
+
   def new
     @language = Language.new
   end
@@ -13,9 +15,12 @@ class Api::V1::LanguagesController < ApplicationController
     end
   end
 
+  def show
+    render json: @language
+  end
+
   def index
-    languages = existSkill_id ? Language.search_skill_id(params[:skill_id]) : Language.all
-    render json: languages
+    render json: Language.all
   end
 
   def post
@@ -24,11 +29,12 @@ class Api::V1::LanguagesController < ApplicationController
 
   private
 
+  def set_params
+    @language = Language.find(params[:id])
+  end
+
   def language_params
     params.require(:language).permit(:name, :description, :first_experience)
   end
 
-  def existSkill_id
-    params[:skill_id].present?
-  end
 end
