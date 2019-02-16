@@ -23,6 +23,15 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
+  def edit
+    product = Product.find(params[:id])
+    if product.update(product_params)
+      render json: {status: 200, message: '更新が成功しました'}
+    else
+      render json: {message: '更新が失敗しました。'}
+    end
+  end
+
   def post
 
   end
