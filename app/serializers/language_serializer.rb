@@ -1,5 +1,5 @@
 class LanguageSerializer < ActiveModel::Serializer
-  attributes :name, :description, :first_experience, :skill_id, :color
+  attributes :id, :name, :description, :first_experience, :skill_id, :color
 
   has_many :product_languages
 
