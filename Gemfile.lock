@@ -55,10 +55,7 @@ GEM
     byebug (10.0.2)
     case_transform (0.2)
       activesupport
-<<<<<<< HEAD
-=======
     coderay (1.1.2)
->>>>>>> feature/auth
     concurrent-ruby (1.1.4)
     crass (1.0.4)
     erubi (1.8.0)
@@ -154,10 +151,7 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers
-<<<<<<< HEAD
-=======
   bcrypt (~> 3.1.7)
->>>>>>> feature/auth
   bootsnap (>= 1.1.0)
   byebug
   listen (>= 3.0.5, < 3.2)
