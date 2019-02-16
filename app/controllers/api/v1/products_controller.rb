@@ -23,7 +23,7 @@ class Api::V1::ProductsController < ApplicationController
     end
   end
 
-  def edit
+  def update
     product = Product.find(params[:id])
     if product.update(product_params)
       render json: {status: 200, message: '更新が成功しました'}
@@ -43,6 +43,6 @@ class Api::V1::ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:title, :description, :body, :image_url)
+    params.permit(:title, :description, :body, :image_url, languages: [])
   end
 end

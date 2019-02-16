@@ -19,7 +19,7 @@ class Api::V1::LanguagesController < ApplicationController
     render json: @language
   end
 
-  def edit
+  def update
     language = Language.find(params[:id])
     if language.update(language_params)
       render json: {status: 200, message: '更新が成功しました'}
