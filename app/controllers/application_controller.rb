@@ -5,11 +5,20 @@ class ApplicationController < ActionController::API
   rescue_from ForbiddenException, with: :render_message
 
   def authenticate?
-    user = User.find_by(auth_token: params[:access_token])
+    user = AdminUser.find_by(auth_token: params[:access_token])
     user.present?
   end
 
   def check_authenticate
-    raise ForbiddenException, '認証に失敗しました' unless authenticate?
+    raise ForbiddenException, 'token認証に失敗しました。' unless authenticate?
+  end
+
+  def render_exception(e)
+    logger.error("[Error] #{e.message}")
+    render json: { message: 'システムエラーが起きました' }
+  end
+
+  def render_message(e)
+    render json: { message: e.message }
   end
 end
