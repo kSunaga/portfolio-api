@@ -2,9 +2,6 @@ class Api::V1::ProductsController < ApplicationController
   before_action :set_params, only: %i(show)
   before_action :check_authenticate, only: %i(create update)
 
-  def new
-  end
-
   def index
     products = Product.all
     render json: products
@@ -31,10 +28,6 @@ class Api::V1::ProductsController < ApplicationController
     else
       render json: {message: '更新が失敗しました。'}
     end
-  end
-
-  def post
-
   end
 
   private
