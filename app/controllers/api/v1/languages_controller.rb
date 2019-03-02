@@ -36,6 +36,6 @@ class Api::V1::LanguagesController < ApplicationController
   end
 
   def language_params
-    params.permit(:name, :description, :first_experience)
+    params.permit(:name, :description, :first_experience, :color)
   end
 end
