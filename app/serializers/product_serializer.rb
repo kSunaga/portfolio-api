@@ -4,7 +4,7 @@ class ProductSerializer < ActiveModel::Serializer
   has_many :product_languages
 
   class ProductLanguageSerializer < ActiveModel::Serializer
-    attributes :langugage_id, :name, :color
+    attributes :language_id, :name, :color
 
     def langugage_id
       object.language.id
