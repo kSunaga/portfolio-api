@@ -2,10 +2,6 @@ class Api::V1::LanguagesController < ApplicationController
   before_action :set_params, only: %i(show)
   before_action :check_authenticate, only: %i(create update)
 
-  def new
-    @language = Language.new
-  end
-
   def create
     @language = Language.new(language_params)
 
@@ -33,10 +29,6 @@ class Api::V1::LanguagesController < ApplicationController
     render json: Language.all
   end
 
-  def post
-
-  end
-
   private
 
   def set_params
@@ -44,7 +36,6 @@ class Api::V1::LanguagesController < ApplicationController
   end
 
   def language_params
-    params.require(:language).permit(:name, :description, :first_experience)
+    params.permit(:name, :description, :first_experience)
   end
-
 end
