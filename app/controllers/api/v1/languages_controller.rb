@@ -21,7 +21,7 @@ class Api::V1::LanguagesController < ApplicationController
     if language.update(language_params)
       render json: {status: 200, message: '更新が成功しました'}
     else
-      render json: {message: '更新が失敗しました。'}
+      render json: {message: '更新に失敗しました。'}
     end
   end
 

@@ -15,9 +15,9 @@ class Api::V1::ProductsController < ApplicationController
     product = Product.new(product_params)
 
     if product.save
-      render json: {status: 200}
+      render json: {message: "登録が成功しました。", status: 200}
     else
-      render json: {status: 500}
+      render json: {message: "登録が失敗しました。", status: 500}
     end
   end
 
@@ -26,7 +26,7 @@ class Api::V1::ProductsController < ApplicationController
     if product.update(product_params)
       render json: {status: 200, message: '更新が成功しました'}
     else
-      render json: {message: '更新が失敗しました。'}
+      render json: {message: '更新に失敗しました。'}
     end
   end
 

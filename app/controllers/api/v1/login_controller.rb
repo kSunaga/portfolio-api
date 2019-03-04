@@ -5,7 +5,7 @@ class Api::V1::LoginController < ApplicationController
     if (admin_user && admin_user.authenticate(set_params[:password]))
       render json: admin_user
     else
-      render json: { status: 'ログインに失敗しました' }
+      render json: { message: 'ログインに失敗しました' }
     end
   end
 

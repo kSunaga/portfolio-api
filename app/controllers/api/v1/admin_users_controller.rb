@@ -6,7 +6,7 @@ class Api::V1::AdminUsersController < ApplicationController
     if admin_user.save
       render json: admin_user
     else
-      render json: { status: '失敗しました'}
+      render json: { message: '失敗しました'}
     end
   end
 
