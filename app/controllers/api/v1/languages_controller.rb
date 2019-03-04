@@ -6,9 +6,9 @@ class Api::V1::LanguagesController < ApplicationController
     @language = Language.new(language_params)
 
     if @language.save
-      render json: {language: '成功'}
+      render json: {message: '登録に成功しました。'}
     else
-      render json: {fail: '失敗'}
+      render json: {message: '登録に失敗しました。'}
     end
   end
 
